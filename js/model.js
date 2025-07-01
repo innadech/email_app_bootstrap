@@ -26,8 +26,7 @@ const model = {
       type: type,
     }
   },
-  users: [],
-  allEmails: [],
+  accounts: [],
   trash: [],
 
   signUp(userCurrent) {
