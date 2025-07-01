@@ -6,12 +6,22 @@ const model = {
     email: '',
     password: '',
   },
+  currentMail: {
+    sender: 'vasy@gmail.com',
+    recipient: 'inna@gmail.com',
+    subject: 'visa',
+    text: 'visa is good',
+    date: '',
+    id: '',
+    type: type,
+  },
   formatMail(mail, type) {
     return {
       firstName: mail.firstName,
       lastName: mail.lastName,
       email: mail.email,
       date: mail.date,
+      subject: '',
       id: this.getNextId(),
       type: type,
     }
@@ -80,24 +90,21 @@ const model = {
     return (this.allEmails = this.allEmails.filter(mail => mail.id !== id))
   },
 
-  removeAndaddToTrash(id) {
+  moveToTrash(id) {
     const findedMail = this.getMailById(id)
     if (findedMail) {
-      this.removeMailById(id)
       findedMail.type = 'trash'
     }
   },
   markAndAddToStarred(id) {
     const findedMail = this.getMailById(id)
     if (findedMail) {
-      this.removeMailById(id)
       findedMail.type = 'inbox_starred'
     }
   },
   unmarkAndAddToAllMails(id) {
     const findedMail = this.getMailById(id)
     if (findedMail) {
-      this.removeMailById(id)
       findedMail.type = 'inbox'
     }
   },
