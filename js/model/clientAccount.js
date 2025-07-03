@@ -2,28 +2,62 @@
 // console.log(serverAccounts) // недоступен! и это хорошо!
 
 import { loginAccount, registerAccount } from './serverAccounts.js'
-import { sendEmail, serverEmails } from './serverEmails.js'
+import { sendEmail, receiveEmails } from './serverEmails.js'
 
-let clientAccountA = null
-let clientAccountB = null
+let clientCurrent = null
+let clientInbox = [] // всё что прилошло с сервера запихиваем сюда. а потом уже разгребаем
 
-function loginA(email, passwd) {
-  clientAccountA = loginAccount(email, passwd)
+function clientLogin(email, passwd) {
+  logout()
+  const loggedAccount = loginAccount(email, passwd)
+  if (loggedAccount) {
+    clientCurrent = loggedAccount
+    console.log('Вход успешный!')
+  } else {
+    console.log('Неправильный логин и/или пароль')
+  }
 }
-function loginB(email, passwd) {
-  clientAccountB = loginAccount(email, passwd)
+
+function clientSend(recipient, subject, text) {
+  if (clientCurrent) {
+    const isOk = sendEmail(clientCurrent.email, recipient, subject, text)
+    if (isOk) {
+      console.log('Письмо успешно отправлено!')
+    } else {
+      console.log('Ошибка при отпавке!')
+    }
+  } else {
+    console.log('Сначала залогиньтесь!')
+  }
+}
+
+function clientReceive() {
+  if (clientCurrent) {
+    clientInbox = receiveEmails(clientCurrent.email)
+    console.log('Письма успешно получны')
+  } else {
+    console.log('Сначала залогиньтесь!')
+  }
+}
+
+function logout() {
+  clientCurrent = null
+  clientInbox = []
 }
 
 registerAccount('alex@foo.com', 'qwe123', 'Алексей', 'Алексеев')
+logout()
+
+clientLogin('alex@foo.com', 'qwe123')
+console.log(clientCurrent)
+clientSend('foo@bar.com', 'foo', 'bar')
+clientSend('xela@bar.com', 'hello', 'Call me back')
+
 registerAccount('xela@bar.com', 'ewq321', 'Женя', 'Женьев')
+logout()
 
-console.log(clientAccountA)
-loginA('alex@foo.com', 'qwe123')
-console.log(clientAccountA)
+clientLogin('xela@bar.com', 'ewq321')
 
-console.log(clientAccountB)
-loginB('xela@bar.com', 'ewq321')
-console.log(clientAccountB)
-
-sendEmail(clientAccountA.email, clientAccountB.email, 'hello', 'Call me back')
-console.log(serverEmails)
+console.log(clientInbox)
+clientReceive()
+console.log(clientInbox)

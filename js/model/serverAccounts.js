@@ -10,6 +10,7 @@ function createAccount(email, passwd, firstName, lastName) {
     passwd: passwd,
     firstName: firstName,
     lastName: lastName,
+    // isLoggedIn: false,
   }
 }
 
