@@ -2,6 +2,7 @@
 // console.log(serverAccounts) // недоступен! и это хорошо!
 
 import { loginAccount, registerAccount } from './serverAccounts.js'
+import { sendEmail, serverEmails } from './serverEmails.js'
 
 let clientAccountA = null
 let clientAccountB = null
@@ -23,3 +24,6 @@ console.log(clientAccountA)
 console.log(clientAccountB)
 loginB('xela@bar.com', 'ewq321')
 console.log(clientAccountB)
+
+sendEmail(clientAccountA.email, clientAccountB.email, 'hello', 'Call me back')
+console.log(serverEmails)

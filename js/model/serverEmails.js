@@ -18,6 +18,6 @@ function sendEmail(sender, recipient, subject, text) {
   // проверить на уникальность
   serverEmails.push(email)
 }
-
+export { sendEmail, serverEmails }
 // sendEmail('inna@gmail.com', 'ivan@gmail.com', 'visa', 'visa is good')
 // serverEmails
