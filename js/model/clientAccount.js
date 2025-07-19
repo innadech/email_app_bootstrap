@@ -3,9 +3,30 @@
 
 import { loginAccount, registerAccount } from './serverAccounts.js'
 import { sendEmail, receiveEmails } from './serverEmails.js'
+import makeId from './makeId.js'
 
 let clientCurrent = null
 let clientInbox = [] // всё что прилошло с сервера запихиваем сюда. а потом уже разгребаем
+let clientAllEmail = []
+
+function addToAllEmail(mail, type) {
+  const formatted = formatMail(mail, type)
+  clientAllEmail.push(formatted)
+  return formatted
+}
+
+function formatMail(mail, type) {
+  return {
+    firstName: mail.firstName,
+    lastName: mail.lastName,
+    email: mail.email,
+    date: mail.date,
+    subject: '',
+    text: '',
+    id: makeId(),
+    type: type,
+  }
+}
 
 function clientLogin(email, passwd) {
   logout()

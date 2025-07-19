@@ -22,6 +22,7 @@ const model = {
       email: mail.email,
       date: mail.date,
       subject: '',
+      text: '',
       id: this.getNextId(),
       type: type,
     }
