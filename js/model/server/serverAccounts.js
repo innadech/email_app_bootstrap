@@ -1,4 +1,4 @@
-import makeId from './makeId.js'
+import makeId from '../shared/makeId.js'
 
 const serverAccounts = []
 
