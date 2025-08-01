@@ -1,5 +1,5 @@
-import { clientAccount } from '../client/clientAccount.js'
-import { sendEmail, receiveEmails } from '../server/serverEmails.js'
+import { clientAccount } from './clientAccount.js'
+import { sendEmail, receiveEmails } from './server/serverEmails.js'
 
 let clientInbox = [] // всё что прилошло с сервера запихиваем сюда. а потом уже разгребаем
 let clientAllEmail = []

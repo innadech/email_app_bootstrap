@@ -12,6 +12,7 @@ function onClickButtonRegister() {
   if (passwd === repeatpasswd) {
     handleClientRegister(email, passwd, firstName, lastName)
   }
+  emailSignup.value = ''
 }
 
 function onClickButtonLogin() {
