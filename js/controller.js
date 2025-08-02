@@ -1,5 +1,6 @@
 import { clientLogin, clientRegister } from './model/client/clientAccount.js'
-console.log('успешный')
+
+import './view.js'
 function handleClientRegister(email, passwd, firstName, lastName) {
   clientRegister(email, passwd, firstName, lastName)
   // window.location.href = 'sign_in.html'

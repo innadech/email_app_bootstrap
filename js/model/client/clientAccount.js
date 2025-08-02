@@ -2,7 +2,7 @@
 // console.log(serverAccounts) // недоступен! и это хорошо!
 
 import { loginAccount, registerAccount } from '../server/serverAccounts.js'
-console.log('yes')
+
 const clientAccount = { current: null }
 
 function clientLogin(email, passwd) {

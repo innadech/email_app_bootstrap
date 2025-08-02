@@ -18,6 +18,7 @@ function registerAccount(email, passwd, firstName, lastName) {
   const account = createAccount(email, passwd, firstName, lastName)
   // проверить на уникальность
   serverAccounts.push(account)
+  console.log(serverAccounts)
   // return true/false
 }
 
