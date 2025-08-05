@@ -1,13 +1,31 @@
 import { clientLogin, clientRegister } from './model/client/clientAccount.js'
+import {
+  clientReceive,
+  clientSend,
+  clientAllEmail,
+} from './model/client/clientEmails.js'
 
 import './view.js'
+
 function handleClientRegister(email, passwd, firstName, lastName) {
   clientRegister(email, passwd, firstName, lastName)
-  // window.location.href = 'sign_in.html'
 }
 function handleClientLogin(email, passwd) {
   clientLogin(email, passwd)
-  // window.location.href = 'all_email.html'
+}
+function handleClientReceive() {
+  clientReceive()
+}
+// function handle() {
+//   render
+// }
+function handleClientSend(recipient, subject, text) {
+  clientSend(recipient, subject, text)
 }
 
-export { handleClientRegister, handleClientLogin }
+export {
+  handleClientRegister,
+  handleClientLogin,
+  handleClientReceive,
+  handleClientSend,
+}

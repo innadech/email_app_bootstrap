@@ -145,8 +145,8 @@
             <div class="p-2 fs-5">
               <span class="material-symbols-outlined"> star </span>Starred
             </div> -->
-            <div class="p-2 fs-5">Income</div>
-            <div class="p-2 fs-5">Outcome</div>
+            <div id="elIncomeButton" class="p-2 fs-5">Income</div>
+            <div id="elOutcomeButton" class="p-2 fs-5">Outcome</div>
             <!-- <div class="p-2 fs-5">Drafts</div>
             <div class="p-2 fs-5">Spam</div>
             <div class="p-2 fs-5">Trash</div> -->
@@ -290,6 +290,7 @@
                   <div class="input-group">
                     <span class="input-group-text" id="addon-wrapping">To</span>
                     <input
+                    id="elRecipient"
                       type="text"
                       class="form-control"
                       placeholder="Username"
@@ -305,7 +306,7 @@
                     <span class="input-group-text" id="addon-wrapping"
                       >Subject</span
                     >
-                    <input type="text" class="form-control" />
+                    <input id="elSubject" type="text" class="form-control" />
                   </div>
                 </div>
               </div>
@@ -315,7 +316,7 @@
                   <textarea
                     class="form-control"
                     placeholder="Leave a comment here"
-                    id="floatingTextarea2"
+                    id="elText"
                     style="height: 200px"
                   ></textarea>
                   <label for="floatingTextarea2">Message</label>
@@ -326,6 +327,7 @@
                   <div class="row gx-5">
                     <div class="col">
                       <div
+                      id="elSendButton"
                         class="p-2 bg-light-subtle border border-primary-subtle rounded-3"
                       >
                         Send
