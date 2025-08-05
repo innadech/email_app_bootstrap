@@ -1,9 +1,14 @@
 import { clientAccount } from './clientAccount.js'
-import { sendEmail, receiveEmails } from '../server/serverEmails.js'
+import {
+  sendEmail,
+  receiveEmailsIncoming,
+  receiveEmailsOutcoming,
+} from '../server/serverEmails.js'
 import makeId from '../shared/makeId.js'
 
 let clientInbox = [] // всё что прилошло с сервера запихиваем сюда. а потом уже разгребаем
-let clientAllEmail = []
+let clientOutbox = []
+// let clientAllEmail = []
 
 function createEmail(recipient, subject, text) {
   return {
@@ -38,10 +43,20 @@ function clientSend(recipient, subject, text) {
   }
 }
 
-function clientReceive() {
+function clientReceiveIncoming() {
   if (clientAccount.current) {
-    clientInbox = receiveEmails(clientAccount.current.email)
-    console.log('Письма успешно получны')
+    clientInbox = receiveEmailsIncoming(clientAccount.current.email)
+    console.log('Входящие письма успешно получны')
+    console.log(clientInbox)
+  } else {
+    console.log('Сначала залогиньтесь!')
+  }
+}
+
+function clientReceiveOutcoming() {
+  if (clientAccount.current) {
+    clientOutbox = receiveEmailsOutcoming(clientAccount.current.email)
+    console.log('Исходящие письма успешно получны')
     console.log(clientInbox)
   } else {
     console.log('Сначала залогиньтесь!')

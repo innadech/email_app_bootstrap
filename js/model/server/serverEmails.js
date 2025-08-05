@@ -23,7 +23,7 @@ function sendEmail(sender, recipient, subject, text) {
   return true // false // может лучше отправлять статус
 }
 
-function receiveEmails(email) {
+function receiveEmailsIncoming(email) {
   // проверить что аккаунт получателя создан
   // проверить что аккаунт получателя залогинен
   // удалить письма с сервера, которые получены получателем
@@ -32,7 +32,11 @@ function receiveEmails(email) {
   // ??? return false
 }
 
-export { sendEmail, receiveEmails }
+function receiveEmailsOutcoming(email) {
+  return serverEmails.filter(se => se.sender === email)
+}
+
+export { sendEmail, receiveEmailsIncoming, receiveEmailsOutcoming }
 
 // sendEmail('inna@gmail.com', 'ivan@gmail.com', 'visa', 'visa is good')
 // serverEmails
