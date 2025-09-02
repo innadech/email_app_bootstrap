@@ -16,17 +16,19 @@ import {
   renderSendPage,
 } from './view.js'
 
+import { clientAccount } from './model/client/clientAccount.js'
+
 function handleClientRegister(email, passwd, firstName, lastName) {
   const isOk = clientRegister(email, passwd, firstName, lastName)
   if (isOk) {
     renderSignUpPage()
   }
 }
-function handleClientLogin(email, passwd, accountEmail) {
+function handleClientLogin(email, passwd) {
   const isOk = clientLogin(email, passwd)
   if (isOk) {
     renderSignInPage()
-    renderMainPage(accountEmail)
+    renderMainPage(clientAccount)
     renderEmailsList(clientInbox)
     renderEmailsList(clientOutbox)
   }
@@ -47,8 +49,8 @@ function handleEmailSheet(id) {
   const email = getEmailById(id, clientInbox)
   renderEmailsListEmailSheet(email)
 }
-function handleClientCreateEmail(accountEmail) {
-  renderelEmailsListCreateEmail(accountEmail)
+function handleClientCreateEmail() {
+  renderelEmailsListCreateEmail(clientAccount)
 }
 
 export {
@@ -57,4 +59,5 @@ export {
   handleClientReceiveIncoming,
   handleClientReceiveOutcoming,
   handleClientSend,
+  handleClientCreateEmail,
 }

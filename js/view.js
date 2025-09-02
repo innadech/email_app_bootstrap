@@ -4,8 +4,10 @@ import {
   handleClientReceiveIncoming,
   handleClientReceiveOutcoming,
   handleClientSend,
+  handleClientCreateEmail,
+  handleEmailSheet,
 } from './controller.js'
-import { clientAccount } from './model/client/clientAccount.js'
+
 console.log('view gut')
 elRegisterButton.onclick = onClickButtonRegister
 elLoginButton.onclick = onClickButtonLogin
@@ -26,7 +28,7 @@ function onClickButtonRegister() {
 function onClickButtonLogin() {
   let email = emailSignin.value
   let passwd = passwordSignin.value
-  handleClientLogin(email, passwd, clientAccount)
+  handleClientLogin(email, passwd)
 }
 
 function onClickButtonIncome() {
@@ -42,11 +44,13 @@ function onClickButtonSend() {
   handleClientSend(recipient, subject, text)
 }
 function onClickElDivContainerWrapEmail(e) {
-  const id = e.target.getAttribute('id')
-  handleEmailSheet(id)
+  console.log(e.target.tagName)
+  const id = e.target.closest('.shadow-none').getAttribute('id')
+  console.log(id)
+  // handleEmailSheet(id)
 }
 function onClickClientCreateEmail() {
-  handleClientCreateEmail(clientAccount)
+  handleClientCreateEmail()
 }
 function renderSignUpPage() {
   elSignUpPage.textContent = ''
@@ -54,7 +58,7 @@ function renderSignUpPage() {
   elH.textContent = 'SignUp successful'
   elSignUpPage.appendChild(elH)
 }
-window.renderSignUpPage = renderSignUpPage
+// window.renderSignUpPage = renderSignUpPage
 function renderSignInPage() {
   elSignInPage.textContent = ''
   const elH = document.createElement('h1')
