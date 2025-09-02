@@ -8,21 +8,6 @@ import makeId from '../shared/makeId.js'
 
 let clientInbox = [] // всё что прилошло с сервера запихиваем сюда. а потом уже разгребаем
 let clientOutbox = []
-// let clientAllEmail = []
-
-function createEmail(recipient, subject, text) {
-  return {
-    id: makeId(),
-    date: Date.now(),
-    recipient: recipient,
-    subject: subject,
-    text: text,
-  }
-}
-function clientSendToAllEmail(recipient, subject, text) {
-  const email = createEmail(recipient, subject, text)
-  clientAllEmail.push(email)
-}
 
 function clientSend(recipient, subject, text) {
   if (clientAccount.current) {
@@ -33,7 +18,6 @@ function clientSend(recipient, subject, text) {
       text
     )
     if (isOk) {
-      clientSendToAllEmail(recipient, subject, text)
       console.log('Письмо успешно отправлено!')
     } else {
       console.log('Ошибка при отпавке!')
@@ -62,24 +46,16 @@ function clientReceiveOutcoming() {
     console.log('Сначала залогиньтесь!')
   }
 }
+function getEmailById(id, emails) {
+  const findedEmail = emails.find(email => email.id === id)
+  return findedEmail
+}
 
-export { clientInbox, clientSend, clientReceive, clientAllEmail }
-
-// function addToAllEmail(mail, type) {
-//   const formatted = formatMail(mail, type)
-//   clientAllEmail.push(formatted)
-//   return formatted
-// }
-
-// function formatMail(mail, type) {
-//   return {
-//     firstName: mail.firstName,
-//     lastName: mail.lastName,
-//     email: mail.email,
-//     date: mail.date,
-//     subject: '',
-//     text: '',
-//     id: makeId(),
-//     type: type,
-//   }
-// }
+export {
+  clientInbox,
+  clientOutbox,
+  clientSend,
+  clientReceiveIncoming,
+  clientReceiveOutcoming,
+  getEmailById,
+}

@@ -14,12 +14,11 @@
   <body>
     <div
       style="width: 70%; height: 600px"
-      class="container-fluid mt-5 bg-light-subtle border border-primary-subtle rounded-3"
-    >
+      class="container-fluid mt-5 bg-light-subtle border border-primary-subtle rounded-3">
       <div
+        id="elSignUpPage"
         style="width: 50%; height: 500px"
-        class="container-fluid mt-5 bg-light-subtle"
-      >
+        class="container-fluid mt-5 bg-light-subtle">
         <p class="fs-2 text-center">Sign up</p>
         <div class="form-floating mb-3">
           <input
@@ -74,17 +73,14 @@
           >
             Sign up
           </button>
-          <!-- <button type="button" class="btn btn-outline-primary text-center">
-            Sign up
-          </button> -->
         </div>
       </div>
     </div>
     <div
+      id="elMainPage"
       style="width: 70%; height: 600px"
-      class="container-fluid mt-5 bg-light-subtle border border-primary-subtle rounded-3"
-    >
-      <div style="width: 50%; height: 500px" class="container-fluid mt-5">
+      class="container-fluid mt-5 bg-light-subtle border border-primary-subtle rounded-3">
+      <div id="elSignInPage" style="width: 50%; height: 500px" class="container-fluid mt-5">
         <p class="fs-2 text-center">Sign in</p>
         <div class="form-floating mb-3">
           <input
@@ -119,7 +115,10 @@
         </div>
       </div>
     </div>
-    <div
+
+    
+   
+    <!-- <div
       class="container-fluid mt-3 min-vw-500 bg-light-subtle border border-primary-subtle rounded-3"
     >
       <div
@@ -138,22 +137,37 @@
         class="container-fluid mt-3 bg-light-subtle border border-primary-subtle rounded-3"
       >
         <div style="height: 100%" class="row gx-5">
-          <div class="col-sm-3 text-left">
+          <div class="col-sm-3 text-left"> -->
             <!-- <div class="p-2 fs-5">
               <span class="material-symbols-outlined"> download </span>Inbox
             </div>
             <div class="p-2 fs-5">
               <span class="material-symbols-outlined"> star </span>Starred
             </div> -->
-            <div id="elIncomeButton" class="p-2 fs-5">Income</div>
-            <div id="elOutcomeButton" class="p-2 fs-5">Outcome</div>
+            <!-- <div id="elIncomeButton" class="p-2 fs-5">Income</div>
+            <div id="elOutcomeButton" class="p-2 fs-5">Outcome</div> -->
             <!-- <div class="p-2 fs-5">Drafts</div>
             <div class="p-2 fs-5">Spam</div>
             <div class="p-2 fs-5">Trash</div> -->
-          </div>
+          <!-- </div>
           <div class="col-sm-9 p-2">
             <div style="height: 10%" class="container p-2">
-              <div class="row">
+                <div class="input-group mb-3">
+                    <span
+                      class="input-group-text"
+                      >Search Email</span
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="elSearchEmail"
+                    />
+                  </div> -->
+
+                      <!-- aria-label="Sizing example input"
+                      aria-describedby="inputGroup-sizing-default" -->
+
+              <!-- <div class="row">
                 <div class="col text-left">
                   <h2>
                     Selected
@@ -175,12 +189,13 @@
                     />
                   </div>
                 </div>
-              </div>
+              </div> -->
 
               <!-- <p class="text-start fs-2">Сhoose</p>
               <span class="badge text-bg-light">Light</span> -->
-            </div>
-            <div
+            <!-- </div> -->
+            <!-- <div
+            id="elEmailsList"
               style="height: 90%"
               class="container p-2 bg-primary-subtle border border-primary-subtle rounded-3"
             >
@@ -227,17 +242,16 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
 
             <!-- <div class="p-5 bg-primary-subtle">Custom column padding</div> -->
-          </div>
+          <!-- </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <div
-      class="container-fluid mt-3 bg-light-subtle border border-primary-subtle rounded-3"
-    >
+    <!-- <div
+      class="container-fluid mt-3 bg-light-subtle border border-primary-subtle rounded-3">
       <div
         style="height: 50px"
         class="container-fluid mt-3 bg-light-subtle border border-primary-subtle rounded-3"
@@ -261,12 +275,12 @@
             <div class="p-2 fs-5">
               <span class="material-symbols-outlined"> star </span>Starred
             </div> -->
-            <div class="p-2 fs-5">Income</div>
-            <div class="p-2 fs-5">Outcome</div>
+            <!-- <div class="p-2 fs-5">Income</div>
+            <div class="p-2 fs-5">Outcome</div> -->
             <!-- <div class="p-2 fs-5">Drafts</div>
             <div class="p-2 fs-5">Spam</div>
             <div class="p-2 fs-5">Trash</div> -->
-          </div>
+          <!-- </div>
           <div class="col-sm-9 p-2">
             <div style="width: 70%; height: 50px">
               <div class="input-group mb-3">
@@ -282,9 +296,9 @@
               </div>
             </div>
             <div
+              id="elSendPage"
               style="height: 500px"
-              class="container p-4 bg-light-subtle border border-primary-subtle rounded-3"
-            >
+              class="container p-4 bg-light-subtle border border-primary-subtle rounded-3">
               <div style="height: 150px">
                 <div>
                   <div class="input-group">
@@ -300,10 +314,10 @@
                   </div>
                   <div class="input-group">
                     <span class="input-group-text" id="basic-addon1">From</span>
-                    <span class="form-control">< alex@foo.com ></span>
+                    <span class="form-control" id="elAccountEmail">< alex@foo.com ></span>
                   </div>
                   <div class="input-group">
-                    <span class="input-group-text" id="addon-wrapping"
+                    <span class="input-group-text" "
                       >Subject</span
                     >
                     <input id="elSubject" type="text" class="form-control" />
@@ -312,10 +326,10 @@
               </div>
               <div style="width: 100%; height: 250px">
                 <!-- <p class="fs-3">Text</p> -->
-                <div class="form-floating">
+                <!-- <div class="form-floating">
                   <textarea
                     class="form-control"
-                    placeholder="Leave a comment here"
+                    placeholder="Leave message"
                     id="elText"
                     style="height: 200px"
                   ></textarea>
@@ -340,9 +354,9 @@
           </div>
         </div>
       </div>
-    </div>
-    <div
-      class="container-fluid mt-3 bg-light-subtle border border-primary-subtle rounded-3"
+    </div> -->
+    <!-- <div -->
+      <!-- class="container-fluid mt-3 bg-light-subtle border border-primary-subtle rounded-3"
     >
       <div
         style="height: 50px"
@@ -354,25 +368,25 @@
           <div class="col">inna_d@meta.ua</div>
           <div class="col">Log out</div>
         </div>
-      </div>
-      <div
+      </div> -->
+      <!-- <div
         style="height: 600px"
         class="container-fluid mt-3 bg-light-subtle border border-primary-subtle rounded-3"
-      >
-        <div style="height: 100%" class="row gx-5">
-          <div class="col-sm-3 text-left">
+      > -->
+        <!-- <div style="height: 100%" class="row gx-5"> -->
+          <!-- <div class="col-sm-3 text-left"> --> --> -->
             <!-- <div class="p-2 fs-5">
               <span class="material-symbols-outlined"> download </span>Inbox
             </div>
             <div class="p-2 fs-5">
               <span class="material-symbols-outlined"> star </span>Starred
             </div> -->
-            <div class="p-2 fs-5">Income</div>
-            <div class="p-2 fs-5">Outcome</div>
+            <!-- <div class="p-2 fs-5">Income</div>
+            <div class="p-2 fs-5">Outcome</div> -->
             <!-- <div class="p-2 fs-5">Drafts</div>
             <div class="p-2 fs-5">Spam</div>
             <div class="p-2 fs-5">Trash</div> -->
-          </div>
+          <!-- </div>
           <div class="col-sm-9 p-2">
             <div style="width: 70%; height: 50px">
                 <div class="input-group mb-3">
@@ -437,24 +451,24 @@
           <div class="col">Log out</div>
         </div>
       </div>
-      <div
-        style="height: 600px"
+      <div -->
+        <!-- style="height: 600px"
         class="container-fluid mt-3 bg-light-subtle border border-primary-subtle rounded-3"
       >
         <div style="height: 100%" class="row gx-5">
-          <div class="col-sm-3 text-left">
+          <div class="col-sm-3 text-left"> -->
             <!-- <div class="p-2 fs-5">
               <span class="material-symbols-outlined"> download </span>Inbox
             </div>
             <div class="p-2 fs-5">
               <span class="material-symbols-outlined"> star </span>Starred
             </div> -->
-            <div class="p-2 fs-5">Income</div>
-            <div class="p-2 fs-5">Outcome</div>
+            <!-- <div class="p-2 fs-5">Income</div>
+            <div class="p-2 fs-5">Outcome</div> -->
             <!-- <div class="p-2 fs-5">Drafts</div>
             <div class="p-2 fs-5">Spam</div>
             <div class="p-2 fs-5">Trash</div> -->
-          </div>
+          <!-- </div>
           <div class="col-sm-9 p-2">
             <div style="height: 10%" class="container p-2">
               <div class="row">
@@ -476,11 +490,11 @@
                     />
                   </div>
                 </div>
-              </div>
+              </div> -->
 
               <!-- <p class="text-start fs-2">Сhoose</p>
               <span class="badge text-bg-light">Light</span> -->
-            </div>
+            <!-- </div>
             <div
               style="height: 90%"
               class="container p-2 bg-primary-subtle border border-primary-subtle rounded-3"
@@ -548,14 +562,15 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
 
             <!-- <div class="p-5 bg-primary-subtle">Custom column padding</div> -->
-          </div>
-        </div>
-      </div>
-    </div>
-     <script
+          <!-- </div> -->
+        <!-- </div> -->
+      <!-- </div> -->
+    <!-- </div> -->
+    
+    <vscript
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
       crossorigin="anonymous"

@@ -82,24 +82,28 @@ const model = {
     return formatted
   },
 
-  getMailById(id) {
-    const findedMail = this.allEmails.find(mail => mail.id === id)
-    return findedMail
+  getEmailById(id, emails) {
+    const findedEmail = emails.find(email => email.id === id)
+    return findedEmail
   },
-  removeMailById(id) {
-    return (this.allEmails = this.allEmails.filter(mail => mail.id !== id))
+  // getEmailById(id) {
+  //   const findedEmail = this.allEmails.find(email => email.id === id)
+  //   return findedEmail
+  // },
+  removeEmailById(id) {
+    return (this.allEmails = this.allEmails.filter(email => email.id !== id))
   },
 
   moveToTrash(id) {
-    const findedMail = this.getMailById(id)
-    if (findedMail) {
-      findedMail.type = 'trash'
+    const findedEmail = this.getEmailById(id)
+    if (findedEmail) {
+      findedEmail.type = 'trash'
     }
   },
   markAndAddToStarred(id) {
-    const findedMail = this.getMailById(id)
-    if (findedMail) {
-      findedMail.type = 'inbox_starred'
+    const findedEmail = this.getEmailById(id)
+    if (findedEmail) {
+      findedEmail.type = 'inbox_starred'
     }
   },
   unmarkAndAddToAllMails(id) {

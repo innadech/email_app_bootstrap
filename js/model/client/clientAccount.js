@@ -11,8 +11,10 @@ function clientLogin(email, passwd) {
   if (loggedAccount) {
     clientAccount.current = loggedAccount
     console.log('Вход успешный!', clientAccount.current.email)
+    return true
   } else {
     console.log('Неправильный логин и/или пароль')
+    return false
   }
 }
 
@@ -21,8 +23,13 @@ function logout() {
 }
 
 function clientRegister(email, passwd, firstName, lastName) {
-  registerAccount(email, passwd, firstName, lastName)
-  console.log('регистрация удалась!')
+  const signUp = registerAccount(email, passwd, firstName, lastName)
+  if (signUp) {
+    console.log('регистрация удалась!')
+    return true
+  } else {
+    return false
+  }
 }
 
 export { clientAccount, clientLogin, clientRegister }

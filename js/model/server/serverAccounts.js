@@ -16,9 +16,14 @@ function createAccount(email, passwd, firstName, lastName) {
 
 function registerAccount(email, passwd, firstName, lastName) {
   const account = createAccount(email, passwd, firstName, lastName)
-  // проверить на уникальность
-  serverAccounts.push(account)
-  console.log(serverAccounts)
+  const findedAccount = serverAccounts.find(a => a.email === email)
+  if (findedAccount) {
+    return false
+  } else {
+    serverAccounts.push(account)
+    return true
+  }
+
   // return true/false
 }
 
