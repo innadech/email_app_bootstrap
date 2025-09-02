@@ -60,4 +60,5 @@ export {
   handleClientReceiveOutcoming,
   handleClientSend,
   handleClientCreateEmail,
+  handleEmailSheet,
 }
